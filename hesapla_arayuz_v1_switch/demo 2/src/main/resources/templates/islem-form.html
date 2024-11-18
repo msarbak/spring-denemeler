@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İşlem Formu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: #007bff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        input::placeholder {
+            color: #999;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>İşlem Ekranı</h1>
+    <form action="/api/v1/islem" method="post">
+        <input type="number" id="sayi1" name="sayi1" placeholder="Sayı 1" required><br><br>
+        <input type="number" id="sayi2" name="sayi2" placeholder="Sayı 2" required><br><br>
+
+        <select id="islemTipi" name="islemTipi" required>
+            <option value="toplam">Toplam</option>
+            <option value="carpim">Çarpım</option>
+            <option value="fark">Fark</option>
+        </select><br><br>
+
+        <input type="submit" value="Onayla">
+    </form>
+</div>
+</body>
+</html>

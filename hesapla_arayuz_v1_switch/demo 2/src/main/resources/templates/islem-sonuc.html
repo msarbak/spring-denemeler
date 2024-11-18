@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>İşlem Sonucu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            position: relative; /* Pozisyonu ayarlamak için */
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: #007bff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 35px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button svg {
+            width: 24px;
+            height: 24px;
+            fill: #007bff;
+            transition: fill 0.3s ease;
+        }
+
+        .back-button:hover svg {
+            fill: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <a href="/islem-form" class="back-button" title="Geri Dön">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708.708L3.707 7.5H14.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+    </a>
+
+    <h1>İşlem Sonucu</h1>
+    <p class="result" th:text="${sonuc}"></p>
+</div>
+</body>
+</html>

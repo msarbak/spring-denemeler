@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Döviz Bilgisi</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 33px;
+            margin-bottom: 25px;
+            color: #007bff;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-success {
+            margin-top: 25px;
+            font-size: 21px;
+            color: #28a745;
+        }
+
+        .result-error {
+            margin-top: 25px;
+            font-size: 21px;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Döviz Bilgi Ekranı</h1>
+    <form action="/currency" method="post">
+        <input type="text" id="currencyName" name="currencyName" placeholder="Döviz Adı" required> <!-- Label kaldırıldı -->
+        <button type="submit">Sorgula</button>
+    </form>
+
+    <div th:if="${message != null}">
+        <div th:if="${message.contains('bulunamadı')}" class="result-error">
+            <h2>Sonuç:</h2>
+            <p th:text="${message}"></p>
+        </div>
+        <div th:if="${!message.contains('bulunamadı')}" class="result-success">
+            <h2>Sonuç:</h2>
+            <p th:text="${message}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
